@@ -57,6 +57,10 @@ app.use(indexRoutes);
 app.use(campgroundRoutes);
 app.use(commentRoutes);
 
-app.listen(3000, function() {
-	console.log("The Yelpcamp server has started!!!");
+var port = process.env.PORT || 3000;
+
+app.listen(port, function() {
+
+console.log("Server has started!");
+
 });
