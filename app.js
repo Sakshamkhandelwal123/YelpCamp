@@ -16,9 +16,10 @@ var commentRoutes = require("./routes/comments"),
 
 const mongoose = require("mongoose");
 seedDB();
-mongoose.connect("mongodb://localhost/yelp_camp", {
+mongoose.connect("mongodb+srv://Saksham:sakshamkl70@cluster0.ke83s.mongodb.net/<dbname>?retryWrites=true&w=majority", {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
+	useCreateIndex: true,
 	useFindAndModify: false
 })
 .then(() => console.log('Connected to DB!'))
