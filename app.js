@@ -16,7 +16,7 @@ var commentRoutes = require("./routes/comments"),
 
 const mongoose = require("mongoose");
 seedDB();
-mongoose.connect("mongodb+srv://Saksham:sakshamkl70@cluster0.ke83s.mongodb.net/<dbname>?retryWrites=true&w=majority", {
+mongoose.connect(process.env.DATABASEURL, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 	useCreateIndex: true,
@@ -24,6 +24,14 @@ mongoose.connect("mongodb+srv://Saksham:sakshamkl70@cluster0.ke83s.mongodb.net/<
 })
 .then(() => console.log('Connected to DB!'))
 .catch(error => console.log(error.message));
+// mongoose.connect("mongodb+srv://Saksham:sakshamkl70@cluster0.ke83s.mongodb.net/<dbname>?retryWrites=true&w=majority", {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true,
+// 	useCreateIndex: true,
+// 	useFindAndModify: false
+// })
+// .then(() => console.log('Connected to DB!'))
+// .catch(error => console.log(error.message));
 
 app.use(bodyParser.urlencoded({extended: true}));
 
