@@ -16,7 +16,8 @@ var commentRoutes = require("./routes/comments"),
 
 const mongoose = require("mongoose");
 seedDB();
-mongoose.connect(process.env.DATABASEURL, {
+var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp";
+mongoose.connect(url, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 	useCreateIndex: true,
@@ -47,6 +48,7 @@ app.use(require("express-session")({
 	resave: false,
 	saveUninitialized: false
 }));
+app.locals.moment = require('moment');
 
 app.use(passport.initialize());
 app.use(passport.session());
